@@ -2,13 +2,13 @@
 	require_once "metodos.php";
 
 	switch ($_SERVER['REQUEST_METHOD']) {
-		case 'POST':
+		case 'PUT':
 			$metodos = new Metodos();
 			$datos = json_decode(file_get_contents('php://input'));
 			
 			if($datos!=NULL){
 				try{
-					$respuesta = Metodos::creaPublicacion($datos->token,$datos->titulo,$datos->descripcion);
+					$respuesta = Metodos::actualizaPublicacion($datos->token,$datos->titulo,$datos->descripcion,$datos->idPublicacion);
 					echo json_encode($respuesta);
 				}
 				catch (Exception $e){
