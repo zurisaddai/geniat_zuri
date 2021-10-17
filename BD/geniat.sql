@@ -29,7 +29,7 @@ DELIMITER $$
 -- Procedimientos
 --
 DROP PROCEDURE IF EXISTS `sp_actualiza_publicacion`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_actualiza_publicacion` (IN `p_sTitulo` VARCHAR(100), IN `p_sDescripcion` VARCHAR(100), IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100), IN `p_nIdPublicacion` INT)  BEGIN
+CREATE  PROCEDURE `sp_actualiza_publicacion` (IN `p_sTitulo` VARCHAR(100), IN `p_sDescripcion` VARCHAR(100), IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100), IN `p_nIdPublicacion` INT)  BEGIN
 DECLARE result_msg    TEXT;
 	DECLARE result_code INT DEFAULT 0;
      
@@ -58,7 +58,7 @@ DECLARE result_msg    TEXT;
 END$$
 
 DROP PROCEDURE IF EXISTS `sp_eliminar_publicacion`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_eliminar_publicacion` (IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100), IN `p_nIdPublicacion` INT)  BEGIN
+CREATE  PROCEDURE `sp_eliminar_publicacion` (IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100), IN `p_nIdPublicacion` INT)  BEGIN
 	DECLARE result_msg    TEXT;
 	DECLARE result_code INT DEFAULT 0;
      
@@ -86,7 +86,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_eliminar_publicacion` (IN `p_sCo
 END$$
 
 DROP PROCEDURE IF EXISTS `sp_insert_publicacion`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_publicacion` (IN `p_sTitulo` VARCHAR(100), IN `p_sDescripcion` VARCHAR(100), IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100))  BEGIN
+CREATE  PROCEDURE `sp_insert_publicacion` (IN `p_sTitulo` VARCHAR(100), IN `p_sDescripcion` VARCHAR(100), IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100))  BEGIN
 	DECLARE result_msg    TEXT;
 	DECLARE result_code INT DEFAULT 0;
      
@@ -115,7 +115,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insert_publicacion` (IN `p_sTitu
 END$$
 
 DROP PROCEDURE IF EXISTS `sp_inser_publicacion`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_inser_publicacion` (IN `p_nIdUsuario` INT, IN `p_sTitulo` VARCHAR(100), IN `p_sDescripcion` VARCHAR(100))  BEGIN
+CREATE  PROCEDURE `sp_inser_publicacion` (IN `p_nIdUsuario` INT, IN `p_sTitulo` VARCHAR(100), IN `p_sDescripcion` VARCHAR(100))  BEGIN
 	DECLARE result_msg    TEXT;
 	DECLARE result_code INT DEFAULT 0;
     
@@ -137,13 +137,13 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_inser_publicacion` (IN `p_nIdUsu
 END$$
 
 DROP PROCEDURE IF EXISTS `sp_login`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_login` (IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100))  BEGIN
+CREATE  PROCEDURE `sp_login` (IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100))  BEGIN
 	SELECT `nIdUsuario`, `sNombre`, `sApellido`, `sCorreo`, `sPassword`, `nRol` 
     FROM `usuarios` WHERE sCorreo=p_sCorreo AND sPassword=p_sPassword;
 END$$
 
 DROP PROCEDURE IF EXISTS `sp_registro_usuario`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_registro_usuario` (IN `p_sNombre` VARCHAR(100), IN `p_sApellido` VARCHAR(100), IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100), IN `p_nRol` INT)  BEGIN
+CREATE  PROCEDURE `sp_registro_usuario` (IN `p_sNombre` VARCHAR(100), IN `p_sApellido` VARCHAR(100), IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100), IN `p_nRol` INT)  BEGIN
 	DECLARE result_msg    TEXT;
 	DECLARE result_code INT DEFAULT 0;
     
@@ -165,7 +165,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_registro_usuario` (IN `p_sNombre
 END$$
 
 DROP PROCEDURE IF EXISTS `sp_select_publicacion`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_select_publicacion` (IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100))  BEGIN
+CREATE  PROCEDURE `sp_select_publicacion` (IN `p_sCorreo` VARCHAR(100), IN `p_sPassword` VARCHAR(100))  BEGIN
 DECLARE result_msg    TEXT;
 	DECLARE result_code INT DEFAULT 0;
      
