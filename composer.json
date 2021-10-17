@@ -1,0 +1,16 @@
+{
+    "name": "zuri/geniat",
+    "description": "test",
+    "type": "project",
+    "require": {
+        "firebase/php-jwt": "^5.4"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "zuri hdz",
+            "email": "zuri_15@hotmail.com"
+        }
+    ],
+    "minimum-stability": "beta"
+}
